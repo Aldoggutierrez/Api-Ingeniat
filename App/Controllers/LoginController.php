@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-class UserController
+class LoginController
 {
-  
+    
     public static function store()
     {
-        echo "hola desde UserController store";
+        echo "hola desde LoginController store";
     }
 }

@@ -11,6 +11,10 @@ class ComposerStaticInitaae553448650228c470803125910cd4b
         array (
             'Routes\\' => 7,
         ),
+        'D' => 
+        array (
+            'Database\\' => 9,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -21,6 +25,10 @@ class ComposerStaticInitaae553448650228c470803125910cd4b
         'Routes\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Routes',
+        ),
+        'Database\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Database',
         ),
         'App\\' => 
         array (

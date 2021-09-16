@@ -2,8 +2,6 @@
 
 namespace Database;
 
-use mysqli;
-
 class Conection
 {
     private $server;
@@ -23,6 +21,7 @@ class Conection
         $this->port = $config["conection"]["port"];
         
         $this->conection = mysqli_connect($this->server,$this->user,$this->password,$this->database,$this->port);
+        $this->conection->set_charset('utf8');
 
         if (!$this->conection) {
             echo "error " . mysqli_connect_error();
@@ -36,5 +35,15 @@ class Conection
         $configPath = dirname(__FILE__);
         $configFile = file_get_contents($configPath."/config");
         return json_decode($configFile,true);
+    }
+
+    public function query($query)
+    {
+        return $this->conection->query($query);
+    }
+
+    public function closeConection($query)
+    {
+        return $this->conection->close();
     }
 }

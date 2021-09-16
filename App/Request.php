@@ -17,7 +17,7 @@ class Request
         $this->uri = $request['REQUEST_URI'];
         $this->validateUri();
         $this->validateMethod();
-        call_user_func(array(new Routes(), $this->resource), $this->method);
+        call_user_func(array(new Routes(), $this->resource), $this->method,$_POST);
 	}
 
     private function validateMethod()

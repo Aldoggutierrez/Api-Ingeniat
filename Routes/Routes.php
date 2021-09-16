@@ -16,21 +16,21 @@ class Routes
     ];
 
 
-    public function user()
+    public function user($method,$json)
     {
-        UserController::store();
+        UserController::store($json);
     }
 
-    public function login()
+    public function login($method,$json)
     {
-        LoginController::store();
+        LoginController::store($json);
     }
 
-    public function post($method)
+    public function post($method,$json)
     {
         if ($method === 'POST') 
         {
-            PostController::store();
+            PostController::store($json);
         }
         if ($method === 'PUT') 
         {
@@ -43,7 +43,7 @@ class Routes
         
     }
 
-    public function posts()
+    public function posts($method,$json)
     {
         PostController::show();
     }

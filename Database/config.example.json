@@ -1,0 +1,9 @@
+{
+    "conection" : {
+        "server": "server ip or domain",
+        "user" : "database user",
+        "password" : "database password",
+        "database" : " databse name",
+        "port" : "server port used for database"
+    }
+}

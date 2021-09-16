@@ -44,7 +44,7 @@ ejemplo de endpoint par la actualización de una publicación
 
      dominio.com/api/post/1
 
- *<h2> Eliminar una publicacion  
+ * <h2> Eliminar una publicacion  
  
    
 para eliminar una publicación se especifica en el endpoint el id de la publicacion que se desea eliminar enviando la peticion por el metodo DELETE
@@ -53,7 +53,7 @@ ejemplo de endpoint par la eliminación de una publicación
 
     dominio.com/api/post/1
 
-*<h2> Consultar publicacionnes
+* <h2> Consultar publicacionnes
 
    
 para consultar las publicaciones se envia una petición por el metodo GET al endpoint de las publicaciones y se obtiene un objeto con con una lista de arrays con el titulo, la descripción, la fecha de creación, el nombre y el rol de usuario que lo creo

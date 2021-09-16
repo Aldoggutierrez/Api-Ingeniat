@@ -46,6 +46,7 @@ ejemplo de endpoint par la actualización de una publicación
 
  *<h2> Eliminar una publicacion  
  
+   
 para eliminar una publicación se especifica en el endpoint el id de la publicacion que se desea eliminar enviando la peticion por el metodo DELETE
 
 ejemplo de endpoint par la eliminación de una publicación
@@ -54,6 +55,7 @@ ejemplo de endpoint par la eliminación de una publicación
 
 *<h2> Consultar publicacionnes
 
+   
 para consultar las publicaciones se envia una petición por el metodo GET al endpoint de las publicaciones y se obtiene un objeto con con una lista de arrays con el titulo, la descripción, la fecha de creación, el nombre y el rol de usuario que lo creo
 
 ejemplo de endpoint par la consulta de todas las publicaciones activas

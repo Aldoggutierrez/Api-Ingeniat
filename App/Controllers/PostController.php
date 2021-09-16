@@ -11,6 +11,13 @@ class PostController
 {
     public static function show($data,$token)
     {
+        if (empty($token))
+        {
+            echo json_encode([
+                "message" => "Invalid token"
+            ]);
+            http_response_code(403);
+        }
         $payload = TokenDecoder::decodeToken($token);
         if ($payload['role'] === 'medio' || $payload['role'] === 'alto medio' || $payload['role'] === 'alto') 
         {
@@ -45,6 +52,13 @@ class PostController
 
     public static function store($data,$token)
     {
+        if (empty($token))
+        {
+            echo json_encode([
+                "message" => "Invalid token"
+            ]);
+            http_response_code(403);
+        }
         $validate = new PostValidator($data);
         if (!$validate->validate($data)) 
         {
@@ -91,6 +105,13 @@ class PostController
 
     public static function update($id,$data,$token)
     {
+        if (empty($token))
+        {
+            echo json_encode([
+                "message" => "Invalid token"
+            ]);
+            http_response_code(403);
+        }
         $validate = new PostValidator($data);
         if (!$validate->validate($data)) 
         {
@@ -136,6 +157,13 @@ class PostController
 
     public static function destroy($id,$data,$token)
     {
+        if (empty($token))
+        {
+            echo json_encode([
+                "message" => "Invalid token"
+            ]);
+            http_response_code(403);
+        }
         $payload = TokenDecoder::decodeToken($token);
 
         if ($payload['role'] === 'alto')

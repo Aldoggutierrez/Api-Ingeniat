@@ -27,13 +27,12 @@ class Conection
             echo "error " . mysqli_connect_error();
             die();
         }
-        echo "Connected successfully";
     }
 
     private function getData()
     {
         $configPath = dirname(__FILE__);
-        $configFile = file_get_contents($configPath."/config");
+        $configFile = file_get_contents($configPath."/config.json");
         return json_decode($configFile,true);
     }
 
@@ -42,8 +41,19 @@ class Conection
         return $this->conection->query($query);
     }
 
-    public function closeConection($query)
+    public function getNumberOfResults($result)
+    {
+        return mysqli_num_rows($result);
+    }
+
+    public function closeConection()
     {
         return $this->conection->close();
     }
+    
+    public function getErrror()
+    {
+        return mysqli_error_list($this->conection);
+    }
+    
 }

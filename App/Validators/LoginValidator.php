@@ -4,7 +4,7 @@ namespace App\Validators;
 
 class LoginValidator
 {
-    public function __construct($data)
+    public function validate($data)
     {
         if (!$this->validateValues($data) && !$this->validateKey($data)) 
         {
@@ -15,9 +15,11 @@ class LoginValidator
 
     private function validateValues($data)
     {
-        foreach ($data as $key => $value) {
+        foreach ($data as $key => $value) 
+        {
             if (empty($value))
             {
+                echo"$key cant be null";
                 return false;
             }
         }

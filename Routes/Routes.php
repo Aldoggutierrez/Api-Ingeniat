@@ -16,35 +16,36 @@ class Routes
     ];
 
 
-    public function user($method,$json)
+    public function user($id,$method,$json)
     {
         UserController::store($json);
     }
 
-    public function login($method,$json)
+    public function login($id,$method,$json)
     {
         LoginController::store($json);
     }
 
-    public function post($method,$json)
+    public function post($id,$method,$json,$token)
     {
         if ($method === 'POST') 
         {
-            PostController::store($json);
+            PostController::store($json,$token);
         }
         if ($method === 'PUT') 
         {
-            PostController::update();
+            var_dump($json);
+            PostController::update($id,$json,$token);
         }
         if ($method === 'DELETE') 
         {
-            PostController::destroy();
+            PostController::destroy($id,$json,$token);
         }
         
     }
 
-    public function posts($method,$json)
+    public function posts($id,$method,$json,$token)
     {
-        PostController::show();
+        PostController::show($json,$token);
     }
 }

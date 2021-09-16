@@ -4,7 +4,7 @@ namespace App\Validators;
 
 class PostValidator
 {
-    public function __construct($data)
+    public function validate($data)
     {
         if (!$this->validateValues($data) && !$this->validateKey($data)) 
         {

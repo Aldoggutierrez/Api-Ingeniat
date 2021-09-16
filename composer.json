@@ -8,5 +8,8 @@
             "Database\\": "Database"
         }
     },
-    "require": {}
+    "require": {
+        "firebase/php-jwt": "^5.4",
+        "nesbot/carbon": "^2.53"
+    }
 }

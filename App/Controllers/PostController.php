@@ -5,20 +5,14 @@ namespace App\Controllers;
 use App\Validators\PostValidator;
 use Database\Conection;
 use App\TokenDecoder;
+use App\Request;
 
 
 class PostController
 {
-    public static function show($data,$token)
+    public static function show(Request $request)
     {
-        if (empty($token))
-        {
-            echo json_encode([
-                "message" => "Invalid token"
-            ]);
-            http_response_code(403);
-        }
-        $payload = TokenDecoder::decodeToken($token);
+        $payload = TokenDecoder::decodeToken($request->token);
         if ($payload['role'] === 'medio' || $payload['role'] === 'alto medio' || $payload['role'] === 'alto') 
         {
             $dbConnection = new Conection;

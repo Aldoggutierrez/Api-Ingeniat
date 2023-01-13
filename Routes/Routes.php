@@ -5,47 +5,32 @@ namespace Routes;
 use App\Controllers\UserController;
 use App\Controllers\LoginController;
 use App\Controllers\PostController;
+use App\Request;
 
 class Routes
 { 
     public static $routes = [
         "user" => ['POST'],
         "login" => ['POST'],
-        "post" => ['POST','PUT','DELETE'],
-        "posts" => ['GET'],
+        "post" => ['GET','POST','PUT','DELETE'],
     ];
 
 
-    public function user($id,$method,$json)
+    public function user(Request $request)
     {
-        UserController::store($json);
+        UserController::store($request->data);
     }
 
-    public function login($id,$method,$json)
+    public function login(Request $request)
     {
-        LoginController::store($json);
+        LoginController::store($request->data);
     }
 
-    public function post($id,$method,$json,$token)
+    public function post(Request $request)
     {
-        if ($method === 'POST') 
-        {
-            PostController::store($json,$token);
-        }
-        if ($method === 'PUT') 
-        {
-            var_dump($json);
-            PostController::update($id,$json,$token);
-        }
-        if ($method === 'DELETE') 
-        {
-            PostController::destroy($id,$json,$token);
-        }
-        
-    }
-
-    public function posts($id,$method,$json,$token)
-    {
-        PostController::show($json,$token);
+        if ($request->method === 'GET') PostController::show($request);
+        if ($request->method === 'POST') PostController::store($request);
+        if ($request->method === 'PUT') PostController::update($request);
+        if ($request->method === 'DELETE') PostController::destroy($request);
     }
 }
